@@ -1,22 +1,33 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <ColorPicker :colors="colors"></ColorPicker>
+    <Header :color="color"></Header>
+    <ColorPicker :colors="colors"
+      @setColor="setColor"
+    ></ColorPicker>
+    <ColorGrid :color="color"></ColorGrid>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
 import ColorPicker from '@/components/ColorPicker';
+import ColorGrid from '@/components/ColorGrid';
 export default {
   name: 'App',
   components:{
     Header,
-    ColorPicker
+    ColorPicker,
+    ColorGrid
   },
   data(){
     return{
-      colors:["#FFF","#000","#AF1E2D","#00EEAE","#FFCE00"]
+      colors:["#FFF","#000","#AF1E2D","#00EEAE","#FFCE00"],
+      color:"#FFF"
+    }
+  },
+  methods:{
+    setColor(color){
+      this.color=color;
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <header>
     <h3>Color<span>Picker</span></h3>
-    <div class="color">
+    <div class="color" :style="'background:'+color">
 
     </div>
   </header>
@@ -10,7 +10,8 @@
 
 <script>
 export default{
-  name:'header-nav'
+  name:'header-nav',
+  props: ['color']
 }
 
 </script>
